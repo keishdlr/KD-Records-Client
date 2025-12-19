@@ -31,14 +31,16 @@
     <a href="#" onclick="editProfile()">Profile</a>
     <a href="#" onclick="showCart()">View Cart</a>
 </div>
-
-<div>
-    Welcome&nbsp;<span style="font-weight: bold">{{username}}</span>&nbsp;|&nbsp;<a href="#" onclick="userService.logout();return false;">logout</a>
-    <div class="cart" onclick="showCart()">
-        <i class="fa-solid fa-cart-shopping"></i>
-        <div class="cart-items">0</div>
+<header>
+    <div class="links">
+        <!-- your nav links -->
     </div>
-</div>
+
+    <div class="cart">
+        🛒
+        <span class="cart-items">0</span>
+    </div>
+</header>
 {{/loggedin}}
 {{#loggedout}}
 <div id="links">

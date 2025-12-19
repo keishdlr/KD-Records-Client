@@ -1,20 +1,20 @@
-{{#products}}
-<div class="product">
-    <div>
-        <h4>{{name}}</h4>
-        <div class="photo">
-            <img src="/images/products/{{imageUrl}}" alt=""
-                 onclick="showImageDetailForm(`{{name}}`,'/images/products/{{imageUrl}}')"
-            >
-          <h4 class="price">${{price}}</h4>
-        </div>
-        <div>
-            <p>{{description}}</p>
+<div class="products">
+    {{#products}}
+    <div class="product-item">
+        <img class="product-image" src="/images/products/{{imageUrl}}" alt="{{name}}">
+
+        <!-- Title only in the middle -->
+        <div class="product-info">
+            <h3>{{name}}</h3>
         </div>
 
+        <!-- Price + button grouped together on the right -->
+        <div class="product-actions">
+            <p class="price">${{price}}</p>
+            <button class="add-to-cart-btn" onclick="cartService.addToCart({{productId}})">
+                Add to Cart
+            </button>
+        </div>
     </div>
-    <div class="add-button">
-        <button class="btn btn-success" onclick="cartService.addToCart({{productId}})">Add to Cart</button>
-    </div>
+    {{/products}}
 </div>
-{{/products}}
