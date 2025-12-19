@@ -7,6 +7,18 @@ class ShoppingCartService {
         total:0
     };
 
+    let cartCount = 0; // declare at the top of your script
+
+    async function addToCart(productId, quantity) {
+      const response = await fetch(`/cart/${productId}?quantity=${quantity}`, {
+        method: 'POST'
+      });
+
+      if (response.ok) {
+        cartCount++; // ✅ safe to use now
+        document.getElementById("cart-count").innerText = cartCount;
+      }
+    }
     addToCart(productId)
     {
         const url = `${config.baseUrl}/cart/products/${productId}`;
