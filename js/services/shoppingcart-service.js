@@ -1,4 +1,4 @@
-let cartService;
+let cartService = new ShoppingCartService;
 
 class ShoppingCartService {
 
@@ -186,11 +186,27 @@ class ShoppingCartService {
         }
     }
 }
+// keep track of cart count
+let cartCount = 0;
 
+// function to update badge
+function updateCartBadge() {
+  const badge = document.getElementById("cart-items");
+  if (badge) {
+    badge.textContent = cartCount;
+  }
+}
 
+// function called when user adds a product
+function addToCart(productId) {
+  cartCount++;
 
+  // update badge
+  updateCartBadge();
 
-
+  // your existing cart logic
+  cartService.addToCart(productId);
+}
 document.addEventListener('DOMContentLoaded', () => {
     cartService = new ShoppingCartService();
 
